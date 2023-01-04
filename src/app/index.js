@@ -3,11 +3,10 @@ import { UI } from './UI.js'
 import { Store } from './Store.js'
 require('./index.css')
 
-
-const { city, countryCode } = store.getLocationData
+const store = new Store()
+const { city, countryCode } = store.getLocationData()
 const weather = new Weather(city, countryCode)
 const ui = new UI()
-const store = new Store()
 
 async function fetchWeather() {
     const data = await weather.getWeather()
